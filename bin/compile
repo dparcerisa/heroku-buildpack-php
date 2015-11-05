@@ -312,8 +312,7 @@ if [[ -f "$composer_vendordir/autoload.php" && -d "$composer_vendordir/composer"
     if [[ ! "$composer_bindir/" == "$composer_vendordir"/* && -d "$composer_bindir" ]]; then
         composer_warn_bindir="
 Your Composer bin dir is configured to reside outside of vendor
-dir, so please repeat the two steps above for '$composer_bindir/'.
-"
+dir, so please repeat the two steps above for '$composer_bindir/'."
     fi
     warning "Your Composer vendor dir is part of your Git repository.
 This directory should not be under version control; only your
@@ -377,7 +376,7 @@ relbin=$(python -c "import os.path; print os.path.relpath('$hbpdir', '$composer_
 relbins=$(cat $BP_DIR/composer.json | python -c 'from __future__ import print_function; import sys, json; { print(sys.argv[1]+"/"+bin) for bin in json.load(sys.stdin)["bin"] }' $relbin)
 # link to bins
 cd $BUILD_DIR/$composer_bindir
-ln -s $relbins .
+ln -fs $relbins .
 cd $BUILD_DIR
 
 # Update the PATH

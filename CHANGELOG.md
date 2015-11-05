@@ -9,6 +9,7 @@
 ### FIX
 
 - Apache dist URL update in support/build [David Zuelke]
+- Do not fail if `heroku-*-*` boot scripts are committed to Git in Composer bin dir [David Zuelke]
 
 ## v82 (2015-10-31)
 
